@@ -28,6 +28,24 @@ export default class App extends Component {
     })
   }
 
+  handleDelete = (id) => {
+    console.log("delete button clicked, heyy", id)
+    fetch(`http://localhost:3000/people/${id}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      }
+    })
+    .then(res => {
+      const newPeople = this.state.people.filter(person => person.id !== id)
+      this.setState({
+        people: newPeople,
+        person: {}
+      })
+    })
+  }
+
   render() {
     // console.log(this.state.people)
     return <Fragment>
@@ -36,7 +54,10 @@ export default class App extends Component {
         people={this.state.people}
         handleClick={this.handleClick}
       />
-    <ShowPanel person={this.state.person}/>
+    <ShowPanel
+      person={this.state.person}
+      handleDelete={this.handleDelete}
+    />
     </Fragment>;
   }
 }

@@ -22,8 +22,10 @@ export default class App extends Component {
     })
   }
 
-  handleClick = () => {
-    console.log("clicked bitch!!")
+  handleClick = (person) => {
+    this.setState({
+      person: person
+    })
   }
 
   render() {
@@ -34,7 +36,7 @@ export default class App extends Component {
         people={this.state.people}
         handleClick={this.handleClick}
       />
-      <ShowPanel />
+    <ShowPanel person={this.state.person}/>
     </Fragment>;
   }
 }

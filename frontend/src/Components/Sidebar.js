@@ -6,7 +6,7 @@ const Sidebar = (props) => {
     {props.people.map((person => {
       return <li
         className="sidebar-li"
-        onClick={props.handleClick}
+        onClick={() => props.handleClick(person)}
         key={person.id}>
         {person.name}
       </li>

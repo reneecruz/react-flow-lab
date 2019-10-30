@@ -4,7 +4,7 @@ export default class Topbar extends Component {
   render() {
     return (
       <div className="top-bar">
-        <h1 className="top-bar-title">{this.props.name}</h1>
+        <h1 className="top-bar-title">{this.props.person.name}</h1>
         <h2>Add someone that inspires you!</h2>
         <form>
           <input name="name" type="text" placeholder="Name" />

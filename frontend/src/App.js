@@ -27,7 +27,10 @@ export default class App extends Component {
 
   handleClick = (person) => {
     this.setState({
-      person: person
+      person: person,
+      name: person.name,
+      bio: person.bio,
+      img:person.img_url
     })
   }
 

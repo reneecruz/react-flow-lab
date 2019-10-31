@@ -9,12 +9,13 @@ export default class Topbar extends Component {
         <h2>Add someone that inspires you!</h2>
         <form
           onChange={(event) => this.props.handleChange(event)}
-          onSubmit={(event) => this.props.handleSubmit(event)}
         >
           <input name="name" type="text" placeholder="Name" value={this.props.name}/>
           <input name="bio" type="text" placeholder="Bio" value={this.props.bio}/>
           <input name="img" type="text" placeholder="Img Url" value={this.props.img}/>
-          <input type="submit" />
+          {this.props.person.id ?
+          <input type="submit" value="edit"/> :
+          <input type="submit" value="save" onClick={(event) => this.props.handleSubmit(event)}/>}
         </form>
       </div>
     );
